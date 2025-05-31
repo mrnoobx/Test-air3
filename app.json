@@ -1,18 +1,32 @@
 {
-  "name": "TeraBox Telegram Bot",
-  "description": "A Telegram bot to download TeraBox links using Aria2.",
+  "name": "TeraBox Telegram Downloader Bot",
+  "description": "A Telegram bot that downloads TeraBox videos using Aria2 and Pyrogram.",
+  "repository": "https://github.com/yourusername/terabox-telegram-bot",
+  "keywords": ["python", "telegram", "terabox", "aria2"],
+  "buildpacks": [
+    { "url": "heroku/python" }
+  ],
   "env": {
     "BOT_TOKEN": {
-      "description": "Your Telegram bot token from BotFather",
+      "description": "Telegram bot token from BotFather",
+      "required": true
+    },
+    "API_ID": {
+      "description": "Your Telegram API ID from https://my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Your Telegram API HASH from https://my.telegram.org",
       "required": true
     }
   },
-  "scripts": {
-    "postdeploy": "bash start.sh"
-  },
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-1x"
     }
-  ]
+  },
+  "scripts": {
+    "postdeploy": "echo ✅ Bot successfully deployed on Heroku using a Professional Dyno!"
+  }
 }
