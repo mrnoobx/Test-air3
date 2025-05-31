@@ -1,0 +1,18 @@
+{
+  "name": "TeraBox Telegram Bot",
+  "description": "A Telegram bot to download TeraBox links using Aria2.",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your Telegram bot token from BotFather",
+      "required": true
+    }
+  },
+  "scripts": {
+    "postdeploy": "bash start.sh"
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
